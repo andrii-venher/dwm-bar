@@ -8,11 +8,11 @@
 
 # Change the value of LOCATION to match your city
 dwm_weather() {
-    LOCATION=London
+    LOCATION=Lodz
 
     if [ "$IDENTIFIER" = "unicode" ]; then
-        DATA=$(curl -s wttr.in/$LOCATION?format=1)
-        export __DWM_BAR_WEATHER__="${SEP1} ${DATA} ${SEP2}" 
+        DATA=$(curl -s wttr.in?format="%t/%C")
+        export __DWM_BAR_WEATHER__="${SEP1}☁ ${DATA}${SEP2}" 
     else
         DATA=$(curl -s wttr.in/$LOCATION?format=1 | grep -o ".[0-9].*")
         export __DWM_BAR_WEATHER__="${SEP1} WEA ${DATA} ${SEP2}"
